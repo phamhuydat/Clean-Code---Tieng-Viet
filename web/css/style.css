@@ -1,10 +1,7 @@
-/* Option 2: Import via CSS */
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
-
 * {
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden  ;
+    overflow-x: hidden;
 }
 
 a:link {
@@ -16,10 +13,11 @@ a {
     text-decoration: none;
 }
 
-strong{
+strong {
     word-wrap: break-word;
 }
-th{
+
+th {
     max-width: 100%;
     overflow: hidden;
     word-wrap: break-word;
@@ -140,9 +138,11 @@ img {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 100%;
 }
-.nav-cus{
+
+.nav-cus {
     justify-content: center;
 }
+
 div#btn-fs {
     position: fixed;
     display: flex;
@@ -166,7 +166,7 @@ div#btn-fs button {
     transition: all .5s;
 }
 
-@media (min-width: 600px) and (max-width: 768px) {
+@media (max-width: 768px) {
     div#btn-fs {
         position: fixed;
         display: flex;
@@ -184,6 +184,14 @@ div#btn-fs button {
         border-radius: 5px;
         align-items: center;
     }
+    .pagination ul{
+        margin-left: -40px !important;
+    }
+    
+}
+.nav-home{
+    margin-top: 7px;
+    width: 75px;
 }
 
 .section-footer {
@@ -229,3 +237,171 @@ div#btn-fs button:hover {
     font-size: 1rem;
     width: 100%;
 }
+
+body {
+    background-color: white;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+}
+
+img {}
+
+a {
+    text-decoration: none;
+}
+
+.book-cover {
+    background: linear-gradient(to right, #3c0d14 3px, rgba(255, 255, 255, .5) 5px, rgba(255, 255, 255, .25) 7px, rgba(255, 255, 255, .25) 10px, transparent 12px, transparent 16px, rgba(255, 255, 255, .25) 17px, transparent 22px);
+    box-shadow: 0 0 5px -1px #000, inset -1px 1px 2px rgba(255,255,255,.5);
+    margin: auto;
+    border-radius: 1px;
+}
+
+.book-details {
+    font-family: Roboto, sans-serif;
+    font-weight: 600;
+}
+
+.book-details p {
+    font-size: 14px;
+    word-wrap: break-word;
+    color: #666;
+    font-weight: 500;
+    line-height: 1.75;
+}
+.table-of-contents ul {
+    padding-left: 20px;
+
+}
+
+.table-of-contents li a {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #000;
+    transition: all .5s;
+}
+
+.table-of-contents li {
+    list-style-type: none;
+}
+
+.table-of-contents li a:hover {
+    color: #007f61;
+}
+.container.py-5{
+    margin-top: 50px;
+}
+.box-title{
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.title-content h4{
+    font-weight: 600;
+}
+.title-content .italic{
+    font-weight: inherit;
+}
+
+.title-content span img{
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.title-content span{
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+}
+@media (max-width: 768px) {
+    .book-details div {
+        display: block;
+    }
+
+    .book-details {
+        margin-top: 20px
+    }
+    .container.py-5{
+        margin-top: 30px;
+    }
+}
+.button {
+    font-size: 1em;
+    padding: 10px;
+    color: #fff;
+    border: 2px solid #007f61;
+    border-radius: 20px/50px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    background: #007f61;
+  }
+  .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 50ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 2s ease-in-out;
+  }
+  
+  .popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-weight: lighter;
+    font-family: Tahoma, Arial, sans-serif;
+  }
+  .popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 5ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+
+  .popup .content {
+    max-height: 30%;
+    overflow: auto;
+  }
+  .content.donet p{
+    font-size: 20px;
+    font-weight: 400;
+  }
+  .content.donet p span{
+    font-weight: 600;
+    color: #007f61;
+    margin: 0px !important;
+  }
+  
+  @media screen and (max-width: 700px){
+    .box{
+      width: 70%;
+    }
+    .popup{
+      width: 70%;
+    }
+    .content.donet p{
+        font-size: 16px;
+    }
+  }

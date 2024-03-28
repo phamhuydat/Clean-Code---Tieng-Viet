@@ -43,6 +43,7 @@ var listFile = [
 		link: '/Markdown/Chaper11_System.md'
 	}
 ];
+
 $(document).ready(function () {
 	const getNumber = (number) => {
 		return number < 10 ? '0' + number : number;
@@ -52,15 +53,15 @@ $(document).ready(function () {
 	listFile.forEach(function (file, index) {
 		if (urlParams.get('chapter') == index + 1) {
 			var chapterTemplate = `
-				<option selected value="/chapter.html?chapter=${(getNumber(index + 1))}">${file.title}</option>`;
+				<option selected value="/Index.html?chapter=${(getNumber(index + 1))}">${file.title}</option>`;
 		}
 		else {
 			var chapterTemplate = `
-				<option value="/chapter.html?chapter=${(getNumber(index + 1))}">${file.title}</option>`;
+				<option value="/Index.html?chapter=${(getNumber(index + 1))}">${file.title}</option>`;
 		}
 		var listChaper = `<div class="col-md-6 mt-2">
 							<ul>
-								<li><a href="/chapter.html?chapter=${(getNumber(index + 1))}">${file.title}</a></li>
+								<li><a href="/Index.html?chapter=${(getNumber(index + 1))}">${file.title}</a></li>
 							</ul>
 						</div>`
 		$('.table-of-contents').append(listChaper);
@@ -71,8 +72,14 @@ $(document).ready(function () {
 
 	let chapter = urlParams.get('chapter');
 	// if ((chapter > listFile.length || chapter < 1)) {
-	// 	window.location.href = '/chapter.html?chapter=01';
+	// 	window.location.href = '/Index.html?chapter=01';
 	// }
+	if(chapter === null){
+		$('#content').css("display", "none");
+	}
+	else{
+		$("#home").css("display", "none");
+	}
 
 	$("#info_chapter option")
 	var urlChapter = listFile[parseInt(chapter - 1)].link;
@@ -100,7 +107,7 @@ $(document).ready(function () {
 			chapter--;
 		}
 
-		window.location.href = `/chapter.html?chapter=${getNumber(parseInt(chapter))}`;
+		window.location.href = `/Index.html?chapter=${getNumber(parseInt(chapter))}`;
 	});
 
 
