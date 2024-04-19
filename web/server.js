@@ -59,16 +59,17 @@ $(document).ready(function () {
 			var chapterTemplate = `
 				<option value="/Index.html?chapter=${(getNumber(index + 1))}">${file.title}</option>`;
 		}
-		var listChaper = `<div class="col-md-6 mt-2">
-							<ul>
-								<li><a href="/Index.html?chapter=${(getNumber(index + 1))}">${file.title}</a></li>
-							</ul>
-						</div>`
-		$('.table-of-contents').append(listChaper);
+		var listChaper = `<a href="/Index.html?chapter=${(getNumber(index + 1))}">
+							<li class="list-group-item list-chapter" >
+								${file.title}
+							</li>
+						 </a>`
+		$('.list-group').append(listChaper);
 		$('select').append(chapterTemplate);
 
 	});
 
+	let DISPLAY_NAME = "display";
 
 	let chapter = urlParams.get('chapter');
 	// if ((chapter > listFile.length || chapter < 1)) {
@@ -76,9 +77,10 @@ $(document).ready(function () {
 	// }
 	if(chapter === null){
 		$('#content').css("display", "none");
-	}
-	else{
-		$("#home").css("display", "none");
+		$("#home").css("display", "flex");
+		$("#btn-previ").css("display", "none");
+		$("#btn-next").css("display", "none");
+
 	}
 
 	$("#info_chapter option")
@@ -96,7 +98,7 @@ $(document).ready(function () {
 	});
 	$('.next').on('click', function (ev) {
 		chapter = parseInt(chapter);
-		if (chapter === 1 && chapter === listFile.length) {
+		if (chapter === 1 && chapter === listFile.length || chapter == null) {
 			$("#btn-previ").css("display", "none");
 			return;
 		}
@@ -106,7 +108,6 @@ $(document).ready(function () {
 		} else {
 			chapter--;
 		}
-
 		window.location.href = `/Index.html?chapter=${getNumber(parseInt(chapter))}`;
 	});
 

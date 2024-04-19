@@ -15,6 +15,7 @@ a {
 
 strong {
     word-wrap: break-word;
+    overflow-x: hidden;
 }
 
 th {
@@ -109,8 +110,11 @@ ul li {
 
 
 img {
+
     max-width: 80%;
     display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .pagination select {
@@ -171,25 +175,26 @@ div#btn-fs button {
         position: fixed;
         display: flex;
         bottom: 40px;
-        right: 0px;
-        justify-content: space-between;
+        right: 30px;
+        justify-content: space-around;
         border: none;
     }
 
     div#btn-fs button {
-        width: 10px;
-        height: 10px;
-        opacity: 0.5;
-        transition: all .5s;
-        border-radius: 5px;
-        align-items: center;
+        width: 30px !important; 
+        height: 30px !important;
+        
+        align-items: center !important;
+        overflow-y: visible;
     }
-    .pagination ul{
+
+    .pagination ul {
         margin-left: -40px !important;
     }
-    
+
 }
-.nav-home{
+
+.nav-home {
     margin-top: 7px;
     width: 75px;
 }
@@ -207,10 +212,13 @@ div#btn-fs button {
 div#btn-fs button {
     width: 40px;
     height: 40px;
-    opacity: 0.5;
+    opacity: 0.8;
     transition: all .5s;
     border-radius: 5px;
     align-items: center;
+    display: flex;
+    justify-content: center;
+    overflow-x: visible;
 }
 
 div#btn-fs button:hover {
@@ -229,6 +237,7 @@ div#btn-fs button:hover {
 }
 
 .bool-list {
+    padding-top: 30px ;
     margin-top: 70px;
     font-size: 16px;
 }
@@ -236,6 +245,9 @@ div#btn-fs button:hover {
 #content {
     font-size: 1rem;
     width: 100%;
+}
+#home{
+    display: none;
 }
 
 body {
@@ -252,7 +264,7 @@ a {
 
 .book-cover {
     background: linear-gradient(to right, #3c0d14 3px, rgba(255, 255, 255, .5) 5px, rgba(255, 255, 255, .25) 7px, rgba(255, 255, 255, .25) 10px, transparent 12px, transparent 16px, rgba(255, 255, 255, .25) 17px, transparent 22px);
-    box-shadow: 0 0 5px -1px #000, inset -1px 1px 2px rgba(255,255,255,.5);
+    box-shadow: 0 0 5px -1px #000, inset -1px 1px 2px rgba(255, 255, 255, .5);
     margin: auto;
     border-radius: 1px;
 }
@@ -269,6 +281,7 @@ a {
     font-weight: 500;
     line-height: 1.75;
 }
+
 .table-of-contents ul {
     padding-left: 20px;
 
@@ -288,32 +301,37 @@ a {
 .table-of-contents li a:hover {
     color: #007f61;
 }
-.container.py-5{
+
+.container.py-5 {
     margin-top: 50px;
 }
-.box-title{
+
+.box-title {
     background-color: #f0f0f0;
     border-radius: 8px;
     padding: 24px;
 }
 
-.title-content h4{
+.title-content h4 {
     font-weight: 600;
 }
-.title-content .italic{
+
+.title-content .italic {
     font-weight: inherit;
 }
 
-.title-content span img{
+.title-content span img {
     width: 50px;
     border-radius: 50%;
     margin-right: 20px;
 }
-.title-content span{
+
+.title-content span {
     margin-top: 15px;
     display: flex;
     align-items: center;
 }
+
 @media (max-width: 768px) {
     .book-details div {
         display: block;
@@ -322,10 +340,19 @@ a {
     .book-details {
         margin-top: 20px
     }
-    .container.py-5{
-        margin-top: 30px;
+    .nav-home{
+        display: none;
+    }
+    .popup{
+        width: 70%;
     }
 }
+@media (max-width: 568px){
+ .popup{
+    width: 100%;
+ }
+}
+
 .button {
     font-size: 1em;
     padding: 10px;
@@ -336,8 +363,9 @@ a {
     cursor: pointer;
     transition: all 0.3s ease-out;
     background: #007f61;
-  }
-  .overlay {
+}
+
+.overlay {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -347,13 +375,14 @@ a {
     transition: opacity 50ms;
     visibility: hidden;
     opacity: 0;
-  }
-  .overlay:target {
+}
+
+.overlay:target {
     visibility: visible;
     opacity: 1;
-  }
-  
-  .popup {
+}
+
+.popup {
     margin: 70px auto;
     padding: 20px;
     background: #fff;
@@ -361,15 +390,16 @@ a {
     width: 30%;
     position: relative;
     transition: all 2s ease-in-out;
-  }
-  
-  .popup h2 {
+}
+
+.popup h2 {
     margin-top: 0;
     color: #333;
     font-weight: lighter;
     font-family: Tahoma, Arial, sans-serif;
-  }
-  .popup .close {
+}
+
+.popup .close {
     position: absolute;
     top: 20px;
     right: 30px;
@@ -378,30 +408,44 @@ a {
     font-weight: bold;
     text-decoration: none;
     color: #333;
-  }
+}
 
-  .popup .content {
+.popup .content {
     max-height: 30%;
     overflow: auto;
-  }
-  .content.donet p{
+}
+
+.content.donet p {
     font-size: 20px;
     font-weight: 400;
-  }
-  .content.donet p span{
+}
+
+.content.donet p span {
     font-weight: 600;
     color: #007f61;
     margin: 0px !important;
-  }
-  
-  @media screen and (max-width: 700px){
-    .box{
-      width: 70%;
+}
+
+@media screen and (max-width: 700px) {
+    .box {
+        width: 70%;
     }
-    .popup{
-      width: 70%;
+
+    .popup {
+        width: 70%;
     }
-    .content.donet p{
+
+    .content.donet p {
         font-size: 16px;
     }
-  }
+}
+.list-chapter{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+.list-chapter:hover{
+    color: blue;
+}
